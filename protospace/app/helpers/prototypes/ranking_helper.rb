@@ -1,2 +1,0 @@
-module Prototypes::RankingHelper
-end

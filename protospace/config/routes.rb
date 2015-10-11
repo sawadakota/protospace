@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root "ranking#index"
+  root "proto#ranking"
 end
