@@ -10,7 +10,6 @@ userテーブル
 
 protoテーブル
 /title
-/image_url
 /cathcopy
 /consept
 /user_id
@@ -18,9 +17,14 @@ protoテーブル
 commentテーブル
 /user_id
 /text
+/prototype
 
 tagテーブル
 /tag
+
+imageテーブル
+sub/user_id
+main/protostype_id
 
 user has_many protos
               comments
@@ -33,3 +37,6 @@ comment belongs_to user
                    proto
 
 tag has_many proto
+
+image belongs_to user
+      belongs_to proto
