@@ -22,7 +22,7 @@
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
               %li
-                %a{:href => "#"} Profile Edit
+                %a{:href => "/users/edit"} Profile Edit
               %li
                 = link_to "sign_out", destroy_user_session_path, method: :delete
             %li

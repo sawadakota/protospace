@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push(:username, :avatar, :member, :profile, :works)
+    devise_parameter_sanitizer.for(:sign_in).push(:username, :avatar, :member, :profile, :works)
+    devise_parameter_sanitizer.for(:account_update).push(:username, :avatar, :member, :profile, :works)
   end
   layout "_header.html.haml"
   layout "application.html.haml"
