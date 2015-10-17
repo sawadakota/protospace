@@ -7,7 +7,7 @@ class ProtoController < ApplicationController
   end
 
   def create
-    Proto.create(proto_params)
+    current_user.proto.create(proto_params)
     redirect_to controller: :proto, action: :ranking
   end
 
