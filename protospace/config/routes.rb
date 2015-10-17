@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  root "proto#ranking"
-  resources :proto, only: [:index, :new, :create]
+  root "protos#ranking"
+  resources :protos, only: [:index, :new, :create]
 end

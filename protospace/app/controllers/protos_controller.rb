@@ -1,5 +1,8 @@
-class ProtoController < ApplicationController
+class ProtosController < ApplicationController
   def index
+  end
+
+  def ranking
   end
 
   def new
@@ -8,7 +11,7 @@ class ProtoController < ApplicationController
 
   def create
     current_user.proto.create(proto_params)
-    redirect_to controller: :proto, action: :ranking
+    redirect_to controller: :protos, action: :ranking
   end
 
   private

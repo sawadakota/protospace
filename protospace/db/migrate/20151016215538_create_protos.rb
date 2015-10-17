@@ -4,7 +4,7 @@ class CreateProtos < ActiveRecord::Migration
       t.string   :title
       t.text     :catch_copy
       t.text        :concept
-      t.integer     :user_id
+      t.references  :user
       t.timestamps null: false
     end
   end
