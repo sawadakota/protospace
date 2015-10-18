@@ -7,15 +7,16 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.file_field :image
-        .col-md-12
-          %ul.proto-sub-list.list-group
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.file_field :image
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.file_field :image
+            = f.fields_for :image do |m|
+              = m.file_field :image
+          .col-md-12
+            %ul.proto-sub-list.list-group
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = m.file_field :image1
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = m.file_field :image2
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
