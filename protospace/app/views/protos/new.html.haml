@@ -7,31 +7,40 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.file_field :image
-        .col-md-12
-          %ul.proto-sub-list.list-group
+            = f.fields_for :prototype_photos do |i|
+              = i.file_field :image
+              = i.hidden_field :status, :value => "main"
+
+      .col-md-12
+        %ul.proto-sub-list.list-group
+          = f.fields_for :prototype_photos do |i|
             %li.list-group-item.col-md-4
               .image-upload
-                = f.file_field :image
-            %li.list-group-item.col-md-4
+                = i.file_field :image
+                = i.hidden_field :status, :value => "sub"
+
+          %li.list-group-item.col-md-4
+            = f.fields_for :prototype_photos do |i|
               .image-upload
-                = f.file_field :image
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
-      .row.proto-description
-        .col-md-12
-          =f.text_field :catch_copy, placeholder: :"Catch_Copy"
-        .col-md-12
-          =f.text_area :concept, :cols => "30", :rows => "4", :placeholder => "Concept"
-        .col-md-12
-          %h4 Tag List
-          .row
-            .col-md-3
-              %input{:type => "text", :placeholder => "Web Design"}/
-            .col-md-3
-              %input{:type => "text", :placeholder => "UI"}/
-            .col-md-3
-              %input{:type => "text", :placeholder => "Application"}/
-      .row.text-center.proto-btn
-        = f.submit "PUBLISH", class: "btn btn-lg btn-primary btn-block"
+                = i.file_field :image
+                = i.hidden_field :status, :value => "sub"
+
+          %li.list-group-item.col-md-4
+            .image-upload-plus
+              %span +
+        .row.proto-description
+          .col-md-12
+            =f.text_field :catch_copy, placeholder: :"Catch_Copy"
+          .col-md-12
+            =f.text_area :concept, :cols => "30", :rows => "4", :placeholder => "Concept"
+          .col-md-12
+            %h4 Tag List
+            .row
+              .col-md-3
+                %input{:type => "text", :placeholder => "Web Design"}/
+              .col-md-3
+                %input{:type => "text", :placeholder => "UI"}/
+              .col-md-3
+                %input{:type => "text", :placeholder => "Application"}/
+        .row.text-center.proto-btn
+          = f.submit "PUBLISH", class: "btn btn-lg btn-primary btn-block"

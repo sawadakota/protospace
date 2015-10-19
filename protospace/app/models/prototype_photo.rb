@@ -1,5 +1,6 @@
 class PrototypePhoto < ActiveRecord::Base
-  attr_accessible  :image
-  mount_uploader :image, ImageUploader
   belongs_to :proto
+  mount_uploader :image, ImageUploader
+  enum status: %i(main sub)
 end
+
