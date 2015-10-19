@@ -1,8 +1,9 @@
-class CreatePrototypePhotos < ActiveRecord::Migration
+class CreateThumnails < ActiveRecord::Migration
   def change
-    create_table :prototype_photos do |t|
+    create_table :thumnails do |t|
       t.references :proto
       t.integer    :status
+      t.string     :image
       t.timestamps null: false
     end
   end
