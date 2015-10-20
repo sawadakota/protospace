@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(update_params)
+    redirect_to controller: 'protos', action: 'ranking'
   end
 
   private
