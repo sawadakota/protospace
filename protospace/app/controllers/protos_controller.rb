@@ -7,6 +7,7 @@ class ProtosController < ApplicationController
 
   def new
     @proto = Proto.new
+    @proto.thumnails.build
   end
 
   def create
@@ -16,6 +17,6 @@ class ProtosController < ApplicationController
 
   private
   def proto_params
-    params.require(:proto).permit(:title, :concept, :catch_copy)
+    params.require(:proto).permit(:title, :concept, :catch_copy, thumnails_attributes: [:image, :status])
   end
 end

@@ -7,31 +7,34 @@
       .row
         .col-md-12
           .cover-image-upload
-            %input{:type => "file"}/
+            = f.fields_for :thumnails do |i|
+              = i.file_field :image
+              = i.hidden_field :status, value: 'main'
+
         .col-md-12
-          %ul.proto-sub-list.list-group
+          - 2.times do
             %li.list-group-item.col-md-4
-              .image-upload
-                %input{:type => "file"}/
-            %li.list-group-item.col-md-4
-              .image-upload
-                %input{:type => "file"}/
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
-      .row.proto-description
-        .col-md-12
-          =f.text_field :catch_copy, placeholder: :"Catch_Copy"
-        .col-md-12
-          =f.text_area :concept, :cols => "30", :rows => "4", :placeholder => "Concept"
-        .col-md-12
-          %h4 Tag List
-          .row
-            .col-md-3
-              %input{:type => "text", :placeholder => "Web Design"}/
-            .col-md-3
-              %input{:type => "text", :placeholder => "UI"}/
-            .col-md-3
-              %input{:type => "text", :placeholder => "Application"}/
-      .row.text-center.proto-btn
-        = f.submit "PUBLISH", class: "btn btn-lg btn-primary btn-block"
+              = f.fields_for :thumnails do |i|
+                .image-upload
+                  = i.file_field :image
+                  = i.hidden_field :status, value: 'sub'
+
+          %li.list-group-item.col-md-4
+            .image-upload-plus
+              %span +
+          .row.proto-description
+            .col-md-12
+              =f.text_field :catch_copy, placeholder: :"Catch_Copy"
+            .col-md-12
+              =f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
+            .col-md-12
+              %h4 Tag List
+              .row
+                .col-md-3
+                  %input{:type => "text", :placeholder => "Web Design"}/
+                .col-md-3
+                  %input{:type => "text", :placeholder => "UI"}/
+                .col-md-3
+                  %input{:type => "text", :placeholder => "Application"}/
+          .row.text-center.proto-btn
+            = f.submit "PUBLISH", class: "btn btn-lg btn-primary btn-block"
