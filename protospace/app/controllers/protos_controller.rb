@@ -3,6 +3,7 @@ class ProtosController < ApplicationController
   end
 
   def ranking
+    @proto = Proto.all
   end
 
   def new
