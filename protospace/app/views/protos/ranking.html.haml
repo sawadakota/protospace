@@ -7,9 +7,9 @@
     .row
       %ul.nav.nav-pills.col-lg-11
         %li.active{ role: "presentation" }
-          %a{ href: "#" } Popular PROTO
+          = link_to "Popular PROTO", "#"
         %li{ role: "presentation" }
-          %a{ href: "#" } Newest PROTO
+          = link_to "Newest PROTO", "#"
       %button{ type: "button", class: "btn btn-default col-lg-1" } View Tags
 
 .container.proto-list
@@ -31,14 +31,14 @@
             = proto.title
         .proto-meta
           .proto-user
-            %a{ href: "#"} by #{proto.user.username}
+            = link_to "by #{proto.user.username}", "#"
           .proto-posted
             Apr 26
         %ul.proto-tag-list.list-inline
           %li
-            %a{ href: "#", class: "btn btn-default" } iPad
+            = link_to "iPad", "#", class: "btn btn-default"
           %li
-            %a{ href: "#", class: "btn btn-default" } wireframe
+            = link_to "iPad", "#", class: "btn btn-default"
 
 .text-center
   %ul.pagination

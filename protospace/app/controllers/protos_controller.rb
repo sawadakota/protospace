@@ -1,5 +1,7 @@
 class ProtosController < ApplicationController
 
+  before_action :set_prototype, only: [:edit, :update, :delete]
+
   def ranking
     @proto = Proto.all
   end
@@ -11,24 +13,24 @@ class ProtosController < ApplicationController
 
   def create
     current_user.proto.create(proto_params)
-    redirect_to controller: :protos, action: :ranking
+    redirect_to :root
   end
 
 
   def edit
-    @proto = Proto.find(params[:id])
+    set_prototype
   end
 
   def update
-    proto = Proto.find(params[:id])
-    proto.update(proto_params)
-    redirect_to controller: :protos, action: :ranking
+    set_prototype
+    @proto.update(proto_params)
+    redirect_to :root
   end
 
   def destroy
-    proto = Proto.find(params[:id])
-    proto.destroy
-    redirect_to action: :ranking
+    set_prototype
+    @proto.destroy
+    redirect_to :root
   end
 
   private
@@ -36,4 +38,7 @@ class ProtosController < ApplicationController
     params.require(:proto).permit(:title, :concept, :catch_copy, thumnails_attributes: [:image, :status])
   end
 
+  def set_prototype
+    @proto = Proto.find(params[:id])
+  end
 end
