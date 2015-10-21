@@ -18,17 +18,14 @@ class ProtosController < ApplicationController
 
 
   def edit
-    set_prototype
   end
 
   def update
-    set_prototype
     @proto.update(proto_params)
     redirect_to :root
   end
 
   def destroy
-    set_prototype
     @proto.destroy
     redirect_to :root
   end
