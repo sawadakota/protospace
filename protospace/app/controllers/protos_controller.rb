@@ -6,9 +6,6 @@ class ProtosController < ApplicationController
     @proto = Proto.all
   end
 
-  def show
-  end
-
   def new
     @proto = Proto.new
     @proto.thumnails.build
