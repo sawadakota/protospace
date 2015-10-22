@@ -17,7 +17,7 @@
     - @proto.each do |proto|
       .col-sm-4.col-md-3.proto-content
         .thumbnail
-          = link_to image_tag(proto.thumnails.main.first.image.url)
+          = link_to image_tag(proto.thumnails.main.first.image.url), proto_path(proto.id)
             - if user_signed_in? && current_user.id == proto.user.id
             .dropdown.drop_manu_location
               %button.btn.btn-default.dropdown-toggle{ data: { toggle:"dropdown" }, id: "dropdownMenu", type: "button", aria: { expanded: "false" } }action
