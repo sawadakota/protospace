@@ -2,13 +2,12 @@
   %header.user-nav
     .media
       .media-left
-        %a{:href => "#"}
-          %img.media-object{ src: current_user.avatar.url, alt: "64x64", "data-holder-rendered" => "true", "data-src" => "holder.js/64x64", style: "width: 64px; height: 64px;" }
+        %img.media-object{ src: current_user.avatar.url, alt: "64x64", data: { holder_rendered:"true" }, data: { src:"holder.js/64x64" }, style: "width: 64px; height: 64px;" }
       .media-body
         %h4#top-aligned-media.media-heading
           Top aligned media
           %span.label.label-default.project-number
-            #{current_user.protos.count}
+            #{ current_user.protos.count }
             %i Projects
         .proto-user
           %span.degree #{@user.member}
@@ -32,7 +31,7 @@
               .proto-date
                 Apr 26
             %ul.proto-tag-list.list-inline
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} iPad
-              %li 
-                %a{:href => "#", :class => "btn btn-default"} wireframe
+              %li
+                %a{ href: "#", class: "btn btn-default" } iPad
+              %li
+                %a{ href: "#", class: "btn btn-default" } wireframe
