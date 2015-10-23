@@ -24,7 +24,7 @@ class ProtosController < ApplicationController
   end
 
   def update
-    @proto.update(update_params)
+    @proto.update(proto_params)
     redirect_to :root
   end
 
@@ -35,10 +35,6 @@ class ProtosController < ApplicationController
 
   private
   def proto_params
-    params.require(:proto).permit(:title, :concept, :catch_copy, thumnails_attributes: [:image, :status])
-  end
-
-  def update_params
     params.require(:proto).permit(:title, :concept, :catch_copy, thumnails_attributes: [:image, :status, :id])
   end
 
