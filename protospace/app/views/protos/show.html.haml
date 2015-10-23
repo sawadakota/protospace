@@ -4,7 +4,7 @@
       .media
         .media-left
           %a{:href => "#"}
-            %img.media-object{:alt => "64x64", data: { holder_rendered:"true" }, data: { src:"holder.js/64x64" }, src: "#{@proto.user.avatar.url}", style: "width: 64px; height: 64px;"}/
+            %img.media-object{ alt: "64x64", data: { holder_rendered:"true" }, data: { src:"holder.js/64x64" }, src: "#{@proto.user.avatar.url}", style: "width: 64px; height: 64px;"}/
         .media-body
           %h4#top-aligned-media.media-heading
             Top aligned media
@@ -19,14 +19,12 @@
         %span.num 20
   .row
     .col-md-9
-      = image_tag("#{@proto.thumnails.main.first.image.url}", class: 'img-responsive')
+      = image_tag("#{main_thumnail}", class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
-        - if @proto.present?
+        - @proto.thumnails.sub.each do |sub|
           %li.list-group-item
-            = image_tag("#{@proto.thumnails.sub.first.image.url}", class: 'img-responsive')
-          %li.list-group-item
-            = image_tag("#{@proto.thumnails.sub[1].image.url}", class: 'img-responsive')
+            = image_tag("#{sub.image.url}", class: 'img-responsive')
   .row.proto-description
     .col-md-3
       %h4 Catch Copy

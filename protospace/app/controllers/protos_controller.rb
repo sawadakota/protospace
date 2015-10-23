@@ -1,13 +1,12 @@
 class ProtosController < ApplicationController
 
-  before_action :set_prototype, only: [:edit, :update, :destroy]
+  before_action :set_prototype, only: [:edit, :show, :update, :destroy]
 
   def ranking
     @proto = Proto.all
   end
 
   def show
-    @proto = Proto.find(params[:id])
   end
 
   def new
@@ -25,7 +24,9 @@ class ProtosController < ApplicationController
   end
 
   def update
-    @proto.update(proto_params)
+    binding.pry
+    @proto.update(update_params)
+
     redirect_to :root
   end
 
@@ -37,6 +38,10 @@ class ProtosController < ApplicationController
   private
   def proto_params
     params.require(:proto).permit(:title, :concept, :catch_copy, thumnails_attributes: [:image, :status])
+  end
+
+  def update_params
+    params.require(:proto).permit(:title, :concept, :catch_copy, thumnails_attributes: [:image, :status, :id])
   end
 
   def set_prototype
