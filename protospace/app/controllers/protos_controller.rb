@@ -24,9 +24,7 @@ class ProtosController < ApplicationController
   end
 
   def update
-    binding.pry
     @proto.update(update_params)
-
     redirect_to :root
   end
 
