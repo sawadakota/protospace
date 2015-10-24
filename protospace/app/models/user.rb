@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :protos
   mount_uploader :avatar, ImageUploader
+  has_many :likes
 end
