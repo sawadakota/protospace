@@ -13,10 +13,16 @@
             %span.degree #{ @proto.user.works }
 
     .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+      %button#like-button.btn.btn-default.increment-button
+        - if @proto.like_user(current_user)
+          = image_tag("icon_heart.svg")
+          like
+          %span#like-sum.num #{like_counter(@likes)}
+        - else
+          = image_tag("icon_heart.svg")
+          like
+          %span#like-sum.num #{like_counter(@likes)}
+
   .row
     .col-md-9
       = image_tag("#{main_thumnail}", class: 'img-responsive')
@@ -42,7 +48,7 @@
   .row.proto-comments
     %h4.col-md-12
       Comments
-      %span.num (10) 
+      %span.num (10)
     .col-md-8
       .media
         .media-left
