@@ -5,6 +5,7 @@ class CreateProtos < ActiveRecord::Migration
       t.text     :catch_copy
       t.text        :concept
       t.references  :user
+      t.integer    :likes_count
       t.timestamps null: false
     end
   end
