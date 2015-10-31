@@ -13,18 +13,18 @@
             %span.degree #{ @proto.user.works }
 
     .col-md-6.text-right
-      %button#like-button.btn.btn-default.increment
-        %script
-          hoge(#{@proto.id})
-        - if @proto.like_user(current_user)
+      - if @proto.like_user(current_user)
+        %button#like-button.btn.btn-default.decrement
           = image_tag("icom_heart_red.svg")
           like
-          #{likes_counter(@likes)}
-        - else
+          %span#like-sum
+            = likes_counter(@likes)
+      - else
+        %button#like-button.btn.btn-default.increment
           = image_tag("icon_heart.svg")
           like
           %span#like-sum
-            #{likes_counter(@likes)}
+            = likes_counter(@likes)
 
   .row
     .col-md-9
@@ -93,3 +93,6 @@
             %textarea.form-control{:placeholder => "Your comments", :rows => "3"}
           .form-group.col-md-2
             %button.btn.btn-primary Comment
+
+:javascript
+  hoge(#{@proto.id});

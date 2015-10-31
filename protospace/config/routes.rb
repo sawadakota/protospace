@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root "protos#ranking"
   resources :protos
   resources :users, only: [:edit, :update, :show]
-  resources :likes, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy], format: :json
 end
