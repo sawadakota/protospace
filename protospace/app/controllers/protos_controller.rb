@@ -9,6 +9,8 @@ class ProtosController < ApplicationController
   def show
     @likes = Like.where(proto_id: params[:id])
     @proto = Proto.find(params[:id])
+    @comment = Comment.new
+    @comments = @proto.comments
   end
 
   def new

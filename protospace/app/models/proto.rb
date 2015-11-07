@@ -3,8 +3,5 @@ class Proto < ActiveRecord::Base
   has_many :thumnails
   has_many :likes
   accepts_nested_attributes_for :thumnails
-
-  def like_user(user)
-    likes.find_by(user_id: user)
-  end
+  has_many :comments
 end

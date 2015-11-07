@@ -1,7 +1,7 @@
 module LikesHelper
 
 def like_user
-    @proto.user.likes
+    current_user.likes
 end
 
 end
