@@ -1,14 +1,17 @@
 class LikesController < ApplicationController
   def create
-    @like = Like.create(user_id: current_user.id, proto_id: params[:proto_id])
+    @proto = Proto.find(params[:proto_id])
+    # Like.create(user_id: current_user.id, proto_id: params[:proto_id])
     @likes = Like.where(proto_id: params[:proto_id])
-    # render json: @like.to_json
+    @like = current_user.likes.create(proto_id: params[:proto_id])
+    render layout: false
   end
 
   def destroy
-    @like = current_user.likes.find_by(proto_id: params[:proto_id])
+    @proto = Proto.find(params[:id])
+    @like = current_user.likes.find_by(proto_id: params[:id])
+    @likes = Like.where(proto_id: params[:id])
     @like.destroy
-    @likes = Like.where(proto_id: params[:proto_id])
-    # render json: @like.to_json
+    render layout: false
   end
 end
