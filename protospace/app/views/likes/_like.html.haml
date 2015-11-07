@@ -1,12 +1,21 @@
-- if like_user.exists?(proto_id: @proto.id)
+-if user_signed_in?
+
+  - if like_user.exists?(proto_id: @proto.id)
+    %button#like-button.btn.btn-default.decrement
+      = link_to image_tag("icom_heart_red.svg"), like_path(@proto), method: :delete, remote: true
+      like
+      %span#like-sum
+        = likes_counter(@likes)
+  - else
+    %button#like-button.btn.btn-default.decrement
+      = link_to image_tag("icon_heart.svg"), likes_path(proto_id: @proto.id), method: :post, remote: true
+      like
+      %span#like-sum
+        = likes_counter(@likes)
+
+-else
   %button#like-button.btn.btn-default.decrement
-    = link_to image_tag("icom_heart_red.svg"), like_path(@proto), method: :delete, id: "like-button", remote: true
-    like
-    %span#like-sum
-      = likes_counter(@likes)
-- else
-  %button#like-button.btn.btn-default.decrement
-    = link_to image_tag("icon_heart.svg"), likes_path(proto_id: @proto.id), method: :post, id: "like-button", remote: true
+    = link_to image_tag("icon_heart.svg"), likes_path(proto_id: @proto.id), method: :post, remote: true
     like
     %span#like-sum
       = likes_counter(@likes)
