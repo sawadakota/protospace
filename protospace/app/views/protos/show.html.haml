@@ -36,7 +36,6 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
-
   .row.proto-comments
     %h4.col-md-12
       Comments
@@ -45,4 +44,5 @@
     .col-md-8#comment_area
       #comment_list
         = render partial: 'comments/comment', collection: @comments
-      =render partial: 'comments/form'
+      -if user_signed_in?
+        =render partial: 'comments/form'
