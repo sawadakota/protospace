@@ -7,6 +7,8 @@ class ProtosController < ApplicationController
   end
 
   def show
+    @likes = Like.where(proto_id: params[:id])
+    @proto = Proto.find(params[:id])
   end
 
   def new

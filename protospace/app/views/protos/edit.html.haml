@@ -12,15 +12,14 @@
               = i.hidden_field :status, value: 'main'
 
         .col-md-12
-          %li.list-group-item.col-md-4
-            = f.fields_for :thumnails[0], @proto.thumnails.sub[0] do |i|
-              .image-upload
-                = i.file_field :image
-                = i.hidden_field :status, value: 'sub'
-
-          %li.list-group-item.col-md-4
-            .image-upload-plus
-              %span +
+          %ul.protto-sub-list.list-group
+            = f.fields_for :thumnails, @proto.thumnails.sub do |i|
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = i.file_field :image
+                  = i.hidden_field :status, value: 'sub'
+                .image-upload-plus
+                %span +
           .row.proto-description
             .col-md-12
               =f.text_field :catch_copy, placeholder: :"Catch_Copy"
