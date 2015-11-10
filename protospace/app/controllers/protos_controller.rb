@@ -3,7 +3,11 @@ class ProtosController < ApplicationController
   before_action :set_prototype, only: [:edit, :show, :update, :destroy]
 
   def ranking
-    @protos = Proto.all
+    @protos = Proto.order("likes_count DESC")
+  end
+
+  def index
+    @protos = Proto.order("id DESC")
   end
 
   def show
