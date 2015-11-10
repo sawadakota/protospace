@@ -3,7 +3,7 @@ class ProtosController < ApplicationController
   before_action :set_prototype, only: [:edit, :show, :update, :destroy]
 
   def ranking
-    @proto = Proto.all
+    @protos = Proto.all
   end
 
   def show
@@ -11,6 +11,7 @@ class ProtosController < ApplicationController
     @proto = Proto.find(params[:id])
     @comment = Comment.new
     @comments = @proto.comments
+    @tags = @proto.tag_list = []
   end
 
   def new
@@ -19,6 +20,7 @@ class ProtosController < ApplicationController
   end
 
   def create
+    binding.pry
     current_user.protos.create(proto_params)
     redirect_to :root
   end
@@ -39,7 +41,8 @@ class ProtosController < ApplicationController
 
   private
   def proto_params
-    params.require(:proto).permit(:title, :concept, :catch_copy, thumnails_attributes: [:image, :status, :id])
+    tag_list = params[:tag_list]
+    params.require(:proto).permit(:title, :concept, :catch_copy, thumnails_attributes: [:image, :status, :id]).merge(tag_list: tag_list)
   end
 
   def set_prototype

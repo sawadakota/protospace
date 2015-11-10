@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :protos
   resources :users, only: [:edit, :update, :show]
   resources :comments, only: [:new, :create, :destroy]
+  resources :tags, only: [:index, :show]
 end
