@@ -20,7 +20,6 @@ class ProtosController < ApplicationController
   end
 
   def create
-    binding.pry
     current_user.protos.create(proto_params)
     redirect_to :root
   end
