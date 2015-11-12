@@ -1,4 +1,5 @@
 class Proto < ActiveRecord::Base
+  paginates_per 10
   belongs_to :user
   has_many :thumnails
   has_many :likes
