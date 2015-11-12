@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update).push(:username, :avatar, :member, :profile, :works)
   end
   layout "_header.html.haml"
+  layout "_footer.html.haml"
   layout "application.html.haml"
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

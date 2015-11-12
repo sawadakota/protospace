@@ -20,8 +20,9 @@
     .col-md-3
       %ul.proto-sub-list.list-group
         - @proto.thumnails.sub.each do |sub|
-          %li.list-group-item
-            = image_tag("#{sub.image.url}", class: 'img-responsive')
+          - unless sub.image.blank?
+            %li.list-group-item
+              = image_tag("#{sub.image.url}", class: 'img-responsive')
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
@@ -34,7 +35,7 @@
       %ul.proto-tag-list.list-inline
         - @tags.each do |tag|
           %li
-            = link_to tag, tag_path(tag)
+            = link_to tag, tag_path(tag), class: "btn btn-default"
   .row.proto-comments
     %h4.col-md-12
       Comments

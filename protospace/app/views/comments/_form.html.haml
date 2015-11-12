@@ -1,5 +1,5 @@
 .form-inline
-  = form_for @comment, remote: true do  |f|
+  = form_for [@proto, @comment], remote: true do  |f|
     %h4
       Write a comment
     .row
