@@ -7,8 +7,8 @@
           .user-name_image.row
             .user-name.col-md-10
               = f.text_field :username, placeholder: :"Username"
-            .user-image.col-md-2{ style: 'background-image: url();' }
-              %button.btn.btn-primary Change image
+            .user-image.col-md-2#name
+              %button.btn.btn-primary#image_buttonzChange image
               = f.file_field :avatar
           .user-email
             = f.email_field :email, placeholder: :"E-Mail"
