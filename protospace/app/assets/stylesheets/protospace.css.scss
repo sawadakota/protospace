@@ -594,3 +594,26 @@ body {
     }
   }
 }
+
+.thumb {
+  height: 500px;
+  width: 730px;
+}
+
+.col-md-4 .image-upload .thumb {
+  height: 200px ;
+  width: 200px ;
+}
+
+#name .thumb {
+  height: 75px;
+  width: 75px;
+  border-radius: 75px;
+  position: absolute;
+  left: 0;
+}
+
+#image_button {
+  z-index: 10;
+}
+

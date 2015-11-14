@@ -6,20 +6,29 @@
           = f.text_field :title, placeholder: :"Title", class:'proto-new-title'
       .row
         .col-md-12
-          .cover-image-upload
+          .cover-image-upload#preview
             = f.fields_for :thumnails, @proto.thumnails.main do |i|
               = i.file_field :image
               = i.hidden_field :status, value: 'main'
 
         .col-md-12
-          %ul.protto-sub-list.list-group
-            = f.fields_for :thumnails, @proto.thumnails.sub do |i|
-              %li.list-group-item.col-md-4
-                .image-upload
+          %ul.protto-sub-list.list-group#sub1_preview
+            %li.list-group-item.col-md-4
+              .image-upload
+                = f.fields_for :thumnails, @proto.thumnails.sub do |i|
                   = i.file_field :image
                   = i.hidden_field :status, value: 'sub'
-                .image-upload-plus
+
+            %li.list-group-item.col-md-4
+              .image-upload
+                = f.fields_for :thumnails, @proto.thumnails.sub do |i|
+                  = i.file_field :image
+                  = i.hidden_field :status, value: 'sub'
+
+            %li.list-group-item.col-md-4
+              .image-upload-plus
                 %span +
+
           .row.proto-description
             .col-md-12
               =f.text_field :catch_copy, placeholder: :"Catch_Copy"
