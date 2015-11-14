@@ -1,6 +1,3 @@
-/*--------------------------------------*
- * [jQuery] Show thumbnails for any upload files
- *--------------------------------------*/
 $.fn.uploadThumbs = function (option) {
   option = $.extend({
     position  : 0,    // 0:before, 1:after, 2:parent.prepend, 3:parent.append,

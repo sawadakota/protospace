@@ -1,5 +1,4 @@
 $(window).on('page:change',function() {
-      // jQuery Upload uploadThumbs
       $('#preview input:file').uploadThumbs({
       });
       $('#sub1_preview input:file').uploadThumbs({
